@@ -5,3 +5,35 @@
    	text-align: center;
 
 }
+
+.profile-entry {
+	display: flex;
+	width: 100%;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.profile-entry-left {
+	font-weight: bold;
+	
+}
+
+.profile-entry-right {
+	text-align: right;
+	flex: 1;
+	
+}
+
+.player-name {
+	display: block;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.profile-pic {
+	width: 100%;
+}
+
+.team-logo {
+	width: 50%;
+}
