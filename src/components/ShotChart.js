@@ -18,16 +18,18 @@ export class ShotChart extends React.Component {
            Season: "2017-18"
        }).then((response) => {
            const final_shots = response.shot_Chart_Detail.map(shot => ({
-               x: (shot.locX + 250) / 10,
-               y: (shot.locY + 50) / 10,
+               x: (shot.locX + 250) / 10,   // 250 是中心轴的位置
+               y: (shot.locY + 50) / 10,    // 50 
                action_type: shot.actionType,
                shot_distance: shot.shotDistance,
                shot_made_flag: shot.shotMadeFlag,
            }));
 
+           console.log(response);
+
            const courtSelection = d3.select("#shot-chart");
            const chart_court = court().width(500);
-           const chart_shots = shots().shotRenderThreshold(2).displayToolTips(true).displayType("hexbin");
+           const chart_shots = shots().shotRenderThreshold(10).displayToolTips(true).displayType("scatter");
            courtSelection.call(chart_court);
            courtSelection.datum(final_shots).call(chart_shots);
        });
