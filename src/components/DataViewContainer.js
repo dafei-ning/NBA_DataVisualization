@@ -6,7 +6,21 @@ import { CountSlider } from './CountSlider';
 const RadioGroup = Radio.Group;
 
 export class DataViewContainer extends React.Component {
+
+    state = {
+        chartType: 'hexbin'
+    }
+
+    onChartTypeChange = (e) => {
+        console.log(e); // 值是储存e.target.value
+        this.setState({
+            chartType: e.target.value
+        })
+
+    }
+
     render() {
+        const { chartType } = this.state;
         return (
             <div className="data-view">
                 <ShotChart
@@ -16,7 +30,7 @@ export class DataViewContainer extends React.Component {
                     displayToolTips={true}
                 />
                 <CountSlider />
-                <RadioGroup onChange={this.onChange} value={1}>
+                <RadioGroup onChange={this.onChartTypeChange} value={chartType}>
                     <Radio value={1}>Hexbin</Radio>
                     <Radio value={2}>Scatter</Radio>
                   
