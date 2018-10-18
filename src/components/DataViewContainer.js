@@ -1,5 +1,6 @@
 import React from 'react';
 import { Radio, Switch, Row, Col } from 'antd';
+import _ from 'lodash';
 import { ShotChart } from './ShotChart';
 import { CountSlider } from './CountSlider';
 
@@ -48,7 +49,7 @@ export class DataViewContainer extends React.Component {
                     chartType === "hexbin" ?
                     <CountSlider 
                         value={minCount}
-                        onChange = {this.onCountSliderChange}
+                        onChange = {_.debounce(this.onCountSliderChange, 500)} // 0.5s 以内不再有新的call就会call function
                     /> : null
                 }
 
