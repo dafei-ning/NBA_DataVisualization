@@ -10,6 +10,7 @@ export class CountSlider extends React.Component {
 		this.setState({
 			inputValue: value,
 		});
+		this.props.onChange(value); // 等效于执行dataView里面额onCountSliderChange
 	}
 
 	render() {

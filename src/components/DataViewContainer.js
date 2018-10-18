@@ -8,8 +8,16 @@ const RadioGroup = Radio.Group;
 export class DataViewContainer extends React.Component {
 
     state = {
+        minCount: 2,
         chartType: 'hexbin',
         displayToolTips: true
+    }
+
+
+    onCountSliderChange = (minCount) => {
+        this.setState({
+            minCount
+        })
     }
 
     onChartTypeChange = (e) => {
@@ -27,16 +35,19 @@ export class DataViewContainer extends React.Component {
     }
 
     render() {
-        const { chartType, displayToolTips } = this.state;
+        const { minCount, chartType, displayToolTips } = this.state;
         return (
             <div className="data-view">
                 <ShotChart
                     playerId={this.props.playerId}
-                    minCount={2}
+                    minCount={minCount}
                     chartType={chartType}
                     displayToolTips={displayToolTips}
                 />
-                <CountSlider />
+                <CountSlider 
+                    value={minCount}
+                    onChange = {this.onCountSliderChange}
+                />
 
                 <Row>
                     <Col span={8} offset={7}>
