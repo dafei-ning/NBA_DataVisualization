@@ -7,10 +7,12 @@ export class CountSlider extends React.Component {
 	}
 
 	onChange = (value) => {
+		// 保证传进来的数是数字，Number() function 天王盖地虎
+		const cleanValue = Number(value) ? value : this.state.inputValue;
 		this.setState({
-			inputValue: value,
+			inputValue: cleanValue,
 		});
-		this.props.onChange(value); // 等效于执行dataView里面额onCountSliderChange
+		this.props.onChange(cleanValue); // 等效于执行dataView里面额onCountSliderChange
 	}
 
 	render() {
