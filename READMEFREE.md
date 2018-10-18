@@ -2,8 +2,13 @@
 
 https://stats.nba.com/
 
+
+
+## libs
 npm install -S nba
 npm install -S d3-shotchart
+npm install -S antd
+npm install -S lodashs
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Box-shadow_generator
 

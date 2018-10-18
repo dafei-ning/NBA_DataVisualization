@@ -2,6 +2,7 @@ import React from 'react';
 import nba from 'nba';
 import {Profile} from './Profile';
 import {ShotChart} from './ShotChart';
+import {DataViewContainer} from './DataViewContainer';
 
 
 
@@ -36,15 +37,21 @@ export class Main extends React.Component {
 		);
 
 	}
+	/*
+		  parent  -> state
+		  /     \
+  shotChart     slider
+
+	*/
 
 
 	render() {
 		return (
 			<div className="main">
-			<Profile playerInfo={this.state.playerInfo} />
-			<ShotChart playerId={this.state.playerInfo.playerId}/> 
+				<Profile playerInfo={this.state.playerInfo} />
+				<DataViewContainer playerId={this.state.playerInfo.playerId}/>
 			</div>
-			)
+		)
 		
 	}
 }
