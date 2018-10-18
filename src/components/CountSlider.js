@@ -17,7 +17,7 @@ export class CountSlider extends React.Component {
 		return (
 			// row 和 col主要就是让你来画出平行的格式
 			<Row>
-				<Col span={12}>
+				<Col span={12} offset={4}>
 					<Slider
 						min={2}
 						max={20}
