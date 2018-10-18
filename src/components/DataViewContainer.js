@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio } from 'antd';
+import { Radio, Switch } from 'antd';
 import { ShotChart } from './ShotChart';
 import { CountSlider } from './CountSlider';
 
@@ -8,7 +8,8 @@ const RadioGroup = Radio.Group;
 export class DataViewContainer extends React.Component {
 
     state = {
-        chartType: 'hexbin'
+        chartType: 'hexbin',
+        displayToolTips: true
     }
 
     onChartTypeChange = (e) => {
@@ -17,6 +18,12 @@ export class DataViewContainer extends React.Component {
             chartType: e.target.value
         })
 
+    }
+
+    onTooltipChange =(displayToolTips) => {
+        this.setState({
+            displayToolTips
+        })
     }
 
     render() {
@@ -35,6 +42,11 @@ export class DataViewContainer extends React.Component {
                     <Radio value={2}>Scatter</Radio>
                   
                 </RadioGroup>
+                <Switch 
+                    checkedChildren="Show Position Data" 
+                    unCheckedChildren="Only View Chart" 
+                    defaultChecked 
+                    onChange={this.displayToolTips} />
 
             </div>
         );
