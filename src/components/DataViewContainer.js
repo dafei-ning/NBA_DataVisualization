@@ -44,10 +44,13 @@ export class DataViewContainer extends React.Component {
                     chartType={chartType}
                     displayToolTips={displayToolTips}
                 />
-                <CountSlider 
-                    value={minCount}
-                    onChange = {this.onCountSliderChange}
-                />
+                {
+                    chartType === "hexbin" ?
+                    <CountSlider 
+                        value={minCount}
+                        onChange = {this.onCountSliderChange}
+                    /> : null
+                }
 
                 <Row>
                     <Col span={8} offset={7}>
