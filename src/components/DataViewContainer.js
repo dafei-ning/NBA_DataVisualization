@@ -45,12 +45,13 @@ export class DataViewContainer extends React.Component {
                     chartType={chartType}
                     displayToolTips={displayToolTips}
                 />
+
                 {
                     chartType === "hexbin" ?
                     <CountSlider 
                         value={minCount}
                         onChange = {_.debounce(this.onCountSliderChange, 500)} // 0.5s 以内不再有新的call就会call function
-                    /> : null
+                    /> : null  // switch the chart type
                 }
 
                 <Row>

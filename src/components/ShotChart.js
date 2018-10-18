@@ -16,6 +16,7 @@ export class ShotChart extends React.Component {
 	}
 
 	componentDidUpdate() {
+		// 如果不用debounce的话，他会在onchange修改的时候及时刷新，影响网页效率
 		//console.log(componentDidUpdate);
 		nba.stats.shots({
 			PlayerID: this.props.playerId,
