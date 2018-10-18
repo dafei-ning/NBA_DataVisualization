@@ -55,13 +55,13 @@ export class DataViewContainer extends React.Component {
                 }
 
                 <Row>
-                    <Col span={8} offset={7}>
+                    <Col span={8} offset={5}>
                         <RadioGroup onChange={this.onChartTypeChange} value={chartType}>
                             <Radio value={"hexbin"}>Hexbin</Radio>
                             <Radio value={"scatter"}>Scatter</Radio>           
                         </RadioGroup>
                     </Col>
-                    <Col span={2}>
+                    <Col span={7}> 
                         <Switch 
                         checkedChildren="Show Position Data" 
                         unCheckedChildren="Only View Chart" 
