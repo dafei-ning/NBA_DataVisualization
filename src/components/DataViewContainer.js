@@ -41,8 +41,8 @@ export class DataViewContainer extends React.Component {
                 <Row>
                     <Col span={8} offset={7}>
                         <RadioGroup onChange={this.onChartTypeChange} value={chartType}>
-                            <Radio value={1}>Hexbin</Radio>
-                            <Radio value={2}>Scatter</Radio>           
+                            <Radio value={"hexbin"}>Hexbin</Radio>
+                            <Radio value={"scatter"}>Scatter</Radio>           
                         </RadioGroup>
                     </Col>
                     <Col span={2}>
