@@ -4,7 +4,7 @@ https://stats.nba.com/
 
 
 
-## libs
+### libs
 npm install -S nba
 npm install -S d3-shotchart
 npm install -S antd
