@@ -6,14 +6,18 @@ import { PROFILE_PIC_URL_PREFIX } from '../constants';
 
 const Option = AutoComplete.Option;
 
-function onSelect(value) {
-	console.log('onSelect', value);
-}
-
 export class SearchBar extends React.Component {
 	state = {
 		dataSource: [],    //data source
 	}
+
+
+	onSelect = (value) => {
+       console.log('onSelect', value);
+       this.props.loadPlayerInfo(value);
+
+   }
+
 
 	handleSearch = (value) => {
 		
@@ -40,13 +44,13 @@ export class SearchBar extends React.Component {
 			dataSource={dataSource}
 			
 			size="large"
-			onSelect={onSelect}
+			onSelect={this.onSelect}
 			onSearch={this.handleSearch}
 			placeholder="Search NBA player"
 			optionLabelProp="value"
 			>
 			<Input suffix={<Icon type="search"/>} />
 			</AutoComplete>
-			);
+		);
 	}
 }

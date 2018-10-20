@@ -15,12 +15,14 @@ export class Main extends React.Component {
 	// defualt state
 	state = {
 		playerInfo : {
+			playerName: 'Stephen Curry',
 			playerId: 201939
 		}
 	}
 
-	componentDidMount() {
-		const playerId = nba.findPlayer('Stephen Curry').playerId;
+
+	loadPlayerInfo =(playerName) => {
+		const playerId = nba.findPlayer(playerName).playerId;
 		nba.stats.playerInfo({PlayerID: playerId}).then(
 			(info) => {
 				console.log(info);
@@ -36,7 +38,10 @@ export class Main extends React.Component {
 				});
 			}
 		);
+	}
 
+	componentDidMount() {
+		this.loadPlayerInfo(this.state.playerInfo.playerName);
 	}
 	/*
 		  parent  -> state
@@ -48,7 +53,7 @@ export class Main extends React.Component {
 	render() {
 		return (
 			<div className="main">
-				<SearchBar />
+				<SearchBar loadPlayerInfo={this.loadPlayerInfo} />
 				<div className="player">
 					<Profile playerInfo={this.state.playerInfo} />
 					<DataViewContainer playerId={this.state.playerInfo.playerId}/>
