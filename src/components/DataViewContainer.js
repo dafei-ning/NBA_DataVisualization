@@ -66,7 +66,7 @@ export class DataViewContainer extends React.Component {
                         checkedChildren="Show Position Data" 
                         unCheckedChildren="Only View Chart" 
                         defaultChecked 
-                        onChange={this.displayToolTips} />
+                        onChange={this.onTooltipChange} />
                     </Col>
                 </Row>
 

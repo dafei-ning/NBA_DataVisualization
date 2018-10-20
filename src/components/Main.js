@@ -5,6 +5,7 @@ import {ShotChart} from './ShotChart';
 import {DataViewContainer} from './DataViewContainer';
 
 import {SearchBar} from './SearchBar';
+import { DEFAULT_PLAYER_INFO } from '../constants';
 
 
 window.nba = nba;
@@ -14,11 +15,14 @@ export class Main extends React.Component {
 
 	// defualt state
 	state = {
-		playerInfo : {
-			playerName: 'Stephen Curry',
-			playerId: 201939
-		}
+		playerInfo: DEFAULT_PLAYER_INFO
 	}
+	/*
+		1. target the state
+		2. write the callback function where the state is 
+		3. pass down callback function to children that need it using props
+		4. in the children, use [this.props.<callback>(.....)] to execute the function
+	*/
 
 
 	loadPlayerInfo =(playerName) => {
