@@ -2,6 +2,7 @@ import React from 'react';
 import nba from 'nba';
 import {AutoComplete, Icon, Input} from 'antd';
 import { PROFILE_PIC_URL_PREFIX } from '../constants';
+import { AutoComplete2 } from './AutoComplete2';
 
 
 const Option = AutoComplete.Option;
@@ -11,13 +12,10 @@ export class SearchBar extends React.Component {
 		dataSource: [],    //data source
 	}
 
-
 	onSelect = (value) => {
        console.log('onSelect', value);
        this.props.loadPlayerInfo(value);
-
    }
-
 
 	handleSearch = (value) => {
 		
@@ -32,7 +30,6 @@ export class SearchBar extends React.Component {
 					<span className="player-option-label">{fullName}</span>
 				</Option>
 			)
-
 		});
 	}
 
@@ -40,16 +37,16 @@ export class SearchBar extends React.Component {
 		const { dataSource } = this.state;
 		return (
 			<AutoComplete
-			className="search-Bar"
-			dataSource={dataSource}
-			
-			size="large"
-			onSelect={this.onSelect}
-			onSearch={this.handleSearch}
-			placeholder="Search NBA player"
-			optionLabelProp="value"
+				className="search-Bar"
+				dataSource={dataSource}
+				
+				size="large"
+				onSelect={this.onSelect}
+				onSearch={this.handleSearch}
+				placeholder="Search NBA player"
+				optionLabelProp="value"
 			>
-			<Input suffix={<Icon type="search"/>} />
+				<Input suffix={<Icon type="search"/>} />
 			</AutoComplete>
 		);
 	}
